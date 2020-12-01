@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Catálogo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let item of catalogo">
+    <img src="{{ item.imagem }}" />
+    <ion-card-header>
+      <ion-card-subtitle>{{ item.descricao }}</ion-card-subtitle>
+      <ion-card-title>{{ item.codigo }}, {{ item.nome }}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="novoItem()">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>
