@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'novo-item-modal',
     loadChildren: () => import('./novo-item-modal/novo-item-modal.module').then( m => m.NovoItemModalPageModule)
+  },
+  {
+    path: 'edit-item-modal',
+    loadChildren: () => import('./edit-item-modal/edit-item-modal.module').then( m => m.EditItemModalPageModule)
   }
 ];
 @NgModule({

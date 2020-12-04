@@ -6,7 +6,7 @@
 
 <ion-content>
 
-  <form (ngSubmit)="enviar()">
+  <form (ngSubmit)="enviarEmail()">
     <ion-item>
       <ion-label position="floating">Nome</ion-label>
       <ion-input type="text" [(ngModel)]="contato.nome" name="nome"></ion-input>
@@ -14,6 +14,10 @@
     <ion-item>
       <ion-label position="floating">E-mail</ion-label>
       <ion-input type="text" [(ngModel)]="contato.email" name="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Telefone</ion-label>
+      <ion-input type="text" [(ngModel)]="contato.telefone" name="telefone"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Mensagem</ion-label>

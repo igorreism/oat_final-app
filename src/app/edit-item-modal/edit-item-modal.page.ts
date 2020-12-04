@@ -3,37 +3,30 @@ import { ModalController } from '@ionic/angular';
 import { ApiService } from '../services/api.service';
 
 @Component({
-  selector: 'app-novo-item-modal',
-  templateUrl: './novo-item-modal.page.html',
-  styleUrls: ['./novo-item-modal.page.scss'],
+  selector: 'app-edit-item-modal',
+  templateUrl: './edit-item-modal.page.html',
+  styleUrls: ['./edit-item-modal.page.scss'],
 })
-export class NovoItemModalPage implements OnInit {
+export class EditItemModalPage implements OnInit {
 
   @Input() modalController: ModalController;
-  public item = {
-    codigo: null,
-    nome: null,
-    descricao: null
-  }
+  @Input() item: any;
   public imagem: File;
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit() {
   }
-
+  dismiss() {
+    this.modalController.dismiss(null);
+  }
   fileChangeListener($event){
     this.imagem = $event.target.files[0];
   }
-
-  adicionar(){
-    this.apiService.postItens(this.item, this.imagem).subscribe(data => {
+  atualizar(){
+    this.apiService.updateItens(this.item._id, this.item, this.imagem).subscribe(data => {
       this.modalController.dismiss(data);
     })
-  }
-
-  fechar() {
-    this.modalController.dismiss(null);
   }
 
 }

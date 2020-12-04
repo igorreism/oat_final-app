@@ -7,12 +7,23 @@
 </ion-header>
 
 <ion-content>
+  <h4 *ngIf="catalogo.length == 0">Nenhum item na lista!</h4>
   <ion-card *ngFor="let item of catalogo">
     <img src="{{ item.imagem }}" />
     <ion-card-header>
       <ion-card-subtitle>{{ item.descricao }}</ion-card-subtitle>
       <ion-card-title>{{ item.codigo }}, {{ item.nome }}</ion-card-title>
     </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-item button expand="block" lines="full" color="primary" (click)="editItemModal(item)">
+          <ion-icon slot="start" name="create-outline"></ion-icon>
+        </ion-item>
+        <ion-item button expand="block" lines="full" color="danger" (click)="deleteItem(item)">
+          <ion-icon slot="end" name="trash-outline"></ion-icon>
+        </ion-item>
+      </ion-item>
+    </ion-card-content>
   </ion-card>
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" (click)="novoItem()">
